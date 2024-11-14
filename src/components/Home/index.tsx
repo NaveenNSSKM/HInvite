@@ -153,11 +153,11 @@ const handleShareClick = () => {
   window.location.href = whatsappUrl;
 };
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-white p-4 relative">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[#E0F7FA] p-4 relative">
       {!showInviteForm && !isSubmitted && (
         <div className="absolute top-12 left-1/2 transform -translate-x-1/2">
           <Image
-            src="/images/logo/logo.jpg"  // Replace with your image source
+            src="/images/logo/logo.png"  // Replace with your image source
             alt="Logo"
             width={170}
             height={150}
@@ -174,32 +174,33 @@ const handleShareClick = () => {
 
 {!showInviteForm && !isSubmitted && !showGallery && !showWishbox ? (
         <div className="flex flex-col items-center space-y-4 w-full px-4 lg:mt-[180px]">
-          <form className="flex flex-col space-y-4 w-full max-w-md mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20">
-            <input
-              type="password"
-              placeholder="Enter the Invite Password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-              className="p-3 lg:w-[85%] sm:w-full lg:ml-[36px] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-center text-sm sm:text-base md:text-lg lg:text-xl"
-            />
-            {error && <p className="text-red-500 text-center text-xs sm:text-sm md:text-base">{error}</p>}
-          </form>
+        <form className="flex flex-col space-y-6 w-full max-w-md mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20">
+  <input
+    type="password"
+    placeholder="Enter the Invite Password"
+    value={password}
+    onChange={handlePasswordChange}
+    required
+    className="p-8 lg:w-[85%] sm:w-full lg:ml-[36px] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-center text-sm sm:text-base md:text-lg lg:text-xl h-12 sm:h-14 md:h-16" // Added responsive height
+  />
+  {error && <p className="text-red-500 text-center text-xs sm:text-sm md:text-base">{error}</p>}
+</form>
+
           <button
             type="submit"
             onClick={handleSubmit}
-            className="absolute bottom-[80px] lg:bottom-[30px] w-[90%] max-w-sm py-3 bg-[#00796B] text-white font-semibold rounded-md hover:bg-[#00796B]-300 focus:outline-none focus:ring-2 focus:ring-black-500"
+            className="h-[60px] absolute bottom-[80px] text-[20px] lg:bottom-[30px] w-[85%] max-w-sm py-3 bg-[#00796B] text-white font-semibold rounded-md hover:bg-[#00796B]-300 focus:outline-none focus:ring-2 focus:ring-black-500"
           >
             Create New Invite
           </button>
         </div>
           ) : showGallery ? (
             <div className="text-center mt-12">
-             <h2 className="text-2xl font-bold text-center mb-6  fixed top-0 left-0 right-0 bg-white z-10 px-4 py-2 shadow-md">
-             <button onClick={handleBackToSubmit} className="absolute top-2 left-5 text-black-500 text-xl">
+             <div className="text-2xl h-16 rounded-bl-lg rounded-br-lg font-bold text-center mb-6 bg-[#00796B]  fixed top-0 left-0 right-0 rounded-bl-lg rounded-br-lg z-10 px-4 py-2 shadow-md">
+             <button onClick={handleBackToSubmit} className="absolute top-5 left-5 text-black-500 text-xl text-white">
             &#8592;
-          </button>Gallery
-          </h2>
+          </button><h2 className='text-white mt-3'>Gallery</h2>
+          </div>
           <div className="mt-20 grid grid-cols-2 gap-4">
       {galleryImages.map((src, index) => (
         <Image
@@ -216,11 +217,11 @@ const handleShareClick = () => {
           ) : showWishbox ? (
             <div className="text-center mt-12 relative">
             {/* Gallery Header */}
-            <h2 className="text-2xl font-bold text-center mb-6 fixed top-0 left-0 right-0 bg-white z-10 px-4 py-2 shadow-md">
-            <button onClick={handleBackToSubmit} className="absolute top-2 left-5 text-black-500 text-xl">
+            <div className="text-2xl h-16 rounded-bl-lg rounded-br-lg font-bold text-center mb-6 bg-[#00796B]  fixed top-0 left-0 right-0 rounded-bl-lg rounded-br-lg z-10 px-4 py-2 shadow-md">
+             <button onClick={handleBackToSubmit} className="absolute top-5 left-5 text-black-500 text-xl text-white">
             &#8592;
-          </button> Wishes Box
-            </h2>
+          </button><h2 className='text-white mt-3'>Wish Box</h2>
+          </div>
 
             
       
@@ -256,38 +257,42 @@ const handleShareClick = () => {
             {/* Dynamic Google Login Button or Input Box */}
             <div className="fixed bottom-4 left-0 right-0 flex justify-center">
               {isLoggedIn ? (
-                <div className="w-full max-w-md flex space-x-2">
+               
+
+                <div className="w-full  max-w-md flex space-x-2 bg-[#00796B] rounded-lg z-10 px-4 py-2 shadow-md">
                   <input
                     type="text"
-                    className="flex-1 p-2 border border-gray-300 rounded-lg"
-                    placeholder="Enter your wish..."
+                    className="flex-1 p-2 h-[53px] border border-gray-300 rounded-lg "
+                    placeholder="Enter your wishes!!!!"
                     value={wish}
                     onChange={handleWishChange}
                   />
                   <button
-                    className="bg-[#00796B] text-white font-bold py-2 px-4 rounded-lg"
+                    className="bg-white text-[#00796B] white font-bold py-2 px-4 rounded-lg"
                     onClick={handleSendWish}
                   >
                     Send
                   </button>
                 </div>
+                
               ) : (
                 <button
-                  className="w-full max-w-md bg-[#00796B]  text-white font-bold py-2 px-4 rounded-lg"
+                  className="w-[88%] h-16 max-w-md bg-[#00796B]  text-white font-bold py-2 px-4 rounded-lg"
                   onClick={handleLoginClick}
                 >
-                  Login with Google
+                  <h2 className='text-2xl'>Login with Google</h2>
                 </button>
               )}
             </div>
           </div>
       ) : isSubmitted ? (
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-center mb-6 lg:mt-[10px] fixed top-0 left-0 right-0 bg-white z-10 px-4 py-2 shadow-md">
-           
-          </h2>
+          <div className="text-2xl h-16 font-bold text-center mb-6 lg:mt-[10px] fixed top-0 left-0 right-0 bg-[#00796B] z-10 px-4 py-2 shadow-md rounded-bl-lg rounded-br-lg">
+  <h2 className='mt-3 text-white text-2xl'>Home</h2>
+</div>
 
-          <div className="text-1xl font-bold text-green-500 lg:mt-[50px] mt-[-40px]">
+
+          <div className="text-1xl font-bold text-black-500 lg:mt-[50px] mt-[-40px]">
             Line1
             <br />
             <hr className="border-t-2 border-gray-300 mt-8 mb-4" />
@@ -307,42 +312,59 @@ const handleShareClick = () => {
           </div>
 
           {/* Boxes in a single line */}
-          <div className="flex flex-wrap justify-start mt-10 gap-2">
+          <div className="bg-[#00796B] w-full  p-3  rounded-lg mt-[150px] mb-[30px] flex justify-end">
+          <div className="flex flex-wrap justify-start mt-10 gap-4">
             <div
-              className="p-1 bg-blue-100 border border-blue-500 rounded-md shadow-md w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
+              className="p-1  w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
               onClick={handleMapClick}
             >
-              <span className="text-blue-500 font-semibold">Map</span>
+            <div className="flex justify-center">
+      <Image src="/images/Home/globe.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
+    </div>
+    <span className="text-white font-semibold">Map</span>
             </div>
             <div
-              className="p-1 bg-blue-100 border border-blue-500 rounded-md shadow-md w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
+              className="p-1  w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
               onClick={handleMapClick}
             >
-              <span className="text-blue-500 font-semibold">Map</span>
+               <div className="flex justify-center">
+      <Image src="/images/Home/globe.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
+    </div>
+              <span className="text-white font-semibold">Map</span>
             </div>
-            <div onClick={handleWishboxClick} className="p-1 bg-purple-100 border border-purple-500 rounded-md shadow-md w-[85px] sm:w-22 md:w-20 lg:w-48 text-center">
-              <span className="text-purple-500 font-semibold w-1">Wishbox</span>
+            <div onClick={handleWishboxClick} className="p-1  w-[85px] sm:w-22 md:w-20 lg:w-48 text-center">
+            <div className="flex justify-center">
+      <Image src="/images/Home/wishlist.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
+    </div>
+              <span className="text-white font-semibold w-1">Wishbox</span>
             </div>
-            <div  onClick={handleGalleryClick} className="p-1 bg-red-100 border border-red-500 rounded-md shadow-md w-[65px] sm:w-32 md:w-40 lg:w-48 text-center">
-              <span className="text-red-500 font-semibold">Gallery</span>
+            <div  onClick={handleGalleryClick} className="p-1  text-center">
+            <div className="flex justify-center">
+      <Image src="/images/Home/image.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
+    </div>
+              <span className="text-white font-semibold">Gallery</span>
             </div>
-            <div    onClick={handleShareClick} className="p-1 bg-orange-100 border border-orange-500 rounded-md shadow-md w-15 sm:w-32 md:w-40 lg:w-48 text-center">
-              <span className="text-orange-500 font-semibold">Share</span>
+            <div    onClick={handleShareClick} className="p-1  text-center">
+            <div className="flex justify-center">
+      <Image src="/images/Home/vector.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
+    </div>
+              <span className="text-white font-semibold">Share</span>
             </div>
           </div>
         </div>
+        </div>
       ) : (
         <div className="flex flex-col items-center justify-start w-full px-4">
-          <h2  className="text-2xl font-bold text-center mb-6 lg:mt-[40px] fixed top-0 left-0 right-0 bg-white z-10 px-4 py-2 shadow-md">
-          Create New Invite
-          </h2>
-          <form onSubmit={handleInviteSubmit} className="flex flex-col space-y-4 w-full max-w-md mt-[160px]">
+          <div  className=" bg-[#00796B] rounded-bl-lg rounded-br-lg h-[70px] text-2xl font-bold text-center text-white mb-6 lg:mt-[50px] fixed top-0 left-0 right-0  z-10 px-4 py-2 shadow-md">
+         <h2 className='mt-5'>Create New Invite</h2> 
+          </div>
+          <form onSubmit={handleInviteSubmit} className="flex flex-col space-y-4 w-full max-w-md mt-[120px]">
             <input
               type="text"
               placeholder="Enter Your Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 h-16 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00796B]"
             />
             {formErrors.name && <p className="text-red-500">{formErrors.name}</p>}
 
@@ -351,7 +373,7 @@ const handleShareClick = () => {
               placeholder="WhatsApp Number"
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 h-16  border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00796B]"
             />
             {formErrors.whatsapp && <p className="text-red-500">{formErrors.whatsapp}</p>}
 
@@ -360,7 +382,7 @@ const handleShareClick = () => {
               placeholder="Event Name"
               value={eventName}
               onChange={(e) => setEventName(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 h-16 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00796B]"
             />
             {formErrors.eventName && <p className="text-red-500">{formErrors.eventName}</p>}
 
@@ -369,7 +391,7 @@ const handleShareClick = () => {
               placeholder="Event Date"
               value={eventDate}
               onChange={(e) => setEventDate(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3  h-16 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00796B]"
             />
             {formErrors.eventDate && <p className="text-red-500">{formErrors.eventDate}</p>}
 
@@ -378,14 +400,14 @@ const handleShareClick = () => {
               placeholder="Country"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              className="p-3 mb-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 h-16 mb-12 border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00796B]"
             />
             {formErrors.country && <p className="text-red-500">{formErrors.country}</p>}
 
             <div>
               <button
                 type="submit"
-                className="w-full py-3 bg-[#00796B] text-white font-semibold rounded-md hover:bg-[#00796B]-600 focus:outline-none focus:ring-2 focus:ring-black-500 mt-[100px]"
+                className=" h-[60px] w-full py-3 bg-[#00796B] text-[20px] text-white font-semibold rounded-md hover:bg-[#00796B]-600 focus:outline-none focus:ring-2 focus:ring-black-500 mt-[100px]"
               >
                 Submit
               </button>
