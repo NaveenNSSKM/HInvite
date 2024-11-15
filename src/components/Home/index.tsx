@@ -318,34 +318,34 @@ const handleShareClick = () => {
               className="p-1  w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
               onClick={handleMapClick}
             >
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[-15px]">
       <Image src="/images/Home/globe.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
     </div>
-    <span className="text-white font-semibold">Map</span>
+    <span className="text-white font-semibold ">Map</span>
             </div>
             <div
               className="p-1  w-15 sm:w-22 md:w-20 lg:w-48 text-center cursor-pointer"
               onClick={handleMapClick}
             >
-               <div className="flex justify-center">
+               <div className="flex justify-center mt-[-15px]">
       <Image src="/images/Home/globe.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
     </div>
               <span className="text-white font-semibold">Map</span>
             </div>
             <div onClick={handleWishboxClick} className="p-1  w-[85px] sm:w-22 md:w-20 lg:w-48 text-center">
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[-15px]">
       <Image src="/images/Home/wishlist.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
     </div>
               <span className="text-white font-semibold w-1">Wishbox</span>
             </div>
             <div  onClick={handleGalleryClick} className="p-1  text-center">
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[-15px]">
       <Image src="/images/Home/image.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
     </div>
               <span className="text-white font-semibold">Gallery</span>
             </div>
             <div    onClick={handleShareClick} className="p-1  text-center">
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-[-15px]">
       <Image src="/images/Home/vector.png" alt="Map Icon" width={30} height={30} className=" mb-1" />
     </div>
               <span className="text-white font-semibold">Share</span>
